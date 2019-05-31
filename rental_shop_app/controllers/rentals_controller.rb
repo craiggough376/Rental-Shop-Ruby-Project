@@ -16,3 +16,14 @@ get '/rentals/:id' do
   @rental = Rental.find(params[:id])
   erb(:"rentals/show")
 end
+
+get '/rentals/:id/edit' do
+  @rental = Rental.find(params[:id])
+  erb(:"rentals/edit")
+end
+
+post '/rentals/:id' do
+  @rental = Rental.new(params)
+  @rental.update()
+  erb(:"rentals/show")
+end

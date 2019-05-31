@@ -15,3 +15,14 @@ get '/games/:id' do
   @game = Game.find(params[:id])
   erb(:"games/show")
 end
+
+get '/games/:id/edit' do
+  @game = Game.find(params[:id])
+  erb(:"games/edit")
+end
+
+post '/games/:id' do
+  @game = Game.new(params)
+  @game.update()
+  erb(:"games/show")
+end

@@ -15,3 +15,14 @@ get '/customers/:id' do
   @customer = Customer.find(params[:id])
   erb(:"customers/show")
 end
+
+get "/customers/:id/edit" do
+  @customer = Customer.find(params[:id])
+  erb(:"customers/edit")
+end
+
+post "/customers/:id" do
+  @customer = Customer.new(params)
+  @customer.update()
+  erb(:"customers/show")
+end

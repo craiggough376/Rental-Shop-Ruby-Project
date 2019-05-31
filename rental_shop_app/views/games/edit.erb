@@ -1,0 +1,17 @@
+<form method="post" action="/games/<%= @game.id %>">
+
+  <label for="title">Title</label>
+  <input type="text" id="title" name="title" value="<%= @game.title %>"/>
+
+  <label for="console">Console</label>
+  <input type="text" id="console" name="console" value="<%= @game.console %>"/>
+
+  <label for="rental_days">Rental Days</label>
+  <input type="text" id="rental_days" name="rental_days" value="<%= @game.rental_days %>"/>
+
+  <label for="rental_status">Rental Status</label>
+  <input type="text" id="rental_status" name="rental_status" value="<%= @game.rental_status %>"/>
+
+  <input type="submit" value="Save">
+
+</form>
