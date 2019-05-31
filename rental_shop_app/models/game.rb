@@ -18,4 +18,24 @@ class Game
     @id = game['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE games SET (title, console, rental_days) = ($1, $2, $3)
+    WHERE id = $4"
+    values = [@title, @console, @rental_days, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM games WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all
+    sql = "SELECT * FROM games"
+    games = SqlRunner.run(sql)
+    result = games.map { |game|Game.new(game)  }
+    return result
+  end
+
 end
