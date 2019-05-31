@@ -1,0 +1,8 @@
+<% for game in @games %>
+<p>Title: <%= game.title %></p>
+<p>Console: <%= game.console %></p>
+<p>Rental Days: <%= game.rental_days %></p>
+<p>Rental Status: <%= game.rental_status %></p>
+<p><a href="/games/<%= game.id %>">Select Game</a></p>
+<hr>
+<% end %>

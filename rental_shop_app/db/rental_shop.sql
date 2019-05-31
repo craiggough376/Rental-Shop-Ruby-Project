@@ -6,7 +6,8 @@ CREATE TABLE games(
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
   console VARCHAR(255),
-  rental_days INT4
+  rental_days INT4,
+  rental_status VARCHAR(255)
 );
 
 CREATE TABLE customers(

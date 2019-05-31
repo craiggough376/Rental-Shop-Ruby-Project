@@ -1,0 +1,6 @@
+<% for rental in @rentals %>
+<p>Customer: <%= rental.customer_id %></p>
+<p>Game: <%= rental.game_id %></p>
+<p><a href="/rentals/<%= rental.id %>">Select Rental</a></p>
+<hr>
+<% end %>

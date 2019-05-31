@@ -1,0 +1,12 @@
+<p>Name: <%= @customer.name %></p>
+<p>Email: <%= @customer.email %></p>
+
+  <form action="/customers/<%= @customer.id %>/edit" method="get">
+    <input type="submit" value="Edit">
+  </form>
+  <form method="post" action="/customers/<%= @customer.id %>/delete" >
+    <input type="submit" value="Delete">
+  </form>
+  <form method="get" action="/customers/<%= @customer.id %>/delete" >
+    <input type="submit" value="View Rentals">
+  </form>

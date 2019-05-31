@@ -37,6 +37,21 @@ class Rental
     result = Customer.new(customer)
   end
 
+  def game()
+    sql = "SELECT * FROM games WHERE id = $1"
+    values = [@game_id]
+    games = SqlRunner.run(sql, values)
+    result = games.map { |game|Game.new(game)  }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM rentals WHERE id = $1"
+    values = [id]
+    rental = SqlRunner.run(sql, values)[0]
+    result = Rental.new(rental)
+    return result
+  end
+
   def self.all
     sql = "SELECT * FROM rentals"
     rentals = SqlRunner.run(sql)

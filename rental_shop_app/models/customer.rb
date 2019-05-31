@@ -31,11 +31,23 @@ class Customer
     SqlRunner.run(sql, values)
   end
 
-  def rentals()
-    sql = "SELECT * FROM rentals WHERE customer_id = $1"
+  def games()
+    sql = "SELECT games.* FROM games
+    INNER JOIN rentals
+    ON rentals.game_id = games.id
+    WHERE customer_id = $1"
     values = [@id]
-    rentals = SqlRunner.run(sql, values)
-    result = rentals.map{ |rental|Rental.new(rental) }
+    games = SqlRunner.run(sql, values)
+    result = games.map { |game|Game.new(game)  }
+    return result
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM customers WHERE id = $1"
+    values = [id]
+    customer = SqlRunner.run(sql, values)[0]
+    result = Customer.new(customer)
+    return result
   end
 
   def self.all

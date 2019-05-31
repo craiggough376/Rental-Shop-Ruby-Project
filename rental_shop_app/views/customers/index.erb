@@ -1,0 +1,6 @@
+<% for customer in @customers %>
+<p>name: <%= customer.name %></p>
+<p>email: <%= customer.email %></p>
+<p><a href="/customers/<%= customer.id %>">Select Customer</a></p>
+<hr>
+<% end %>

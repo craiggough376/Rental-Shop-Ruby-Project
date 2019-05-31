@@ -1,0 +1,14 @@
+<p>Title: <%= @game.title %></p>
+<p>Console: <%= @game.console %></p>
+<p>Rental Days: <%= @game.rental_days %></p>
+<p>Rental Status: <%= @game.rental_status %></p>
+
+  <form action="/games/<%= @game.id %>/edit" method="get">
+    <input type="submit" value="Edit">
+  </form>
+  <form method="post" action="/games/<%= @game.id %>/delete" >
+    <input type="submit" value="Delete">
+  </form>
+  <form method="get" action="/games/<%= @game.id %>/delete" >
+    <input type="submit" value="View Rentals">
+  </form>

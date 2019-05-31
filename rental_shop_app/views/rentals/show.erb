@@ -1,0 +1,9 @@
+<p>Customer: <%= @rental.game_id %></p>
+<p>Game: <%= @rental.game_id %></p>
+
+  <form action="/rentals/<%= @rental.id %>/edit" method="get">
+    <input type="submit" value="Edit">
+  </form>
+  <form method="post" action="/rentals/<%= @rental.id %>/delete" >
+    <input type="submit" value="Delete">
+  </form>

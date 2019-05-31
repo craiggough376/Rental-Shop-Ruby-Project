@@ -2,33 +2,53 @@ require_relative("../db/sql_runner")
 
 class Game
 
-  attr_accessor :id, :title, :console, :rental_time
+  attr_accessor :id, :title, :console, :rental_days, :rental_status
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @console = options['console']
     @rental_days = options['rental_days'].to_i
+    @rental_status = options['rental_status']
   end
 
   def save()
-    sql = "INSERT INTO games (title, console, rental_days) VALUES ($1, $2, $3)
+    sql = "INSERT INTO games (title, console, rental_days,rental_status) VALUES ($1, $2, $3, $4)
     RETURNING id"
-    values = [@title, @console, @rental_days]
+    values = [@title, @console, @rental_days, @rental_status]
     game = SqlRunner.run(sql, values)[0]
     @id = game['id'].to_i
   end
 
   def update()
-    sql = "UPDATE games SET (title, console, rental_days) = ($1, $2, $3)
-    WHERE id = $4"
-    values = [@title, @console, @rental_days, @id]
+    sql = "UPDATE games SET (title, console, rental_days, rental_status) = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@title, @console, @rental_days, @rental_status, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def customer()
+    sql = "SELECT customers.* FROM customers
+    INNER JOIN rentals
+    ON rentals.customer_id = customers.id
+    WHERE game_id = $1"
+    values = [@id]
+    customer = SqlRunner.run(sql, values)[0]
+    result = Customer.new(customer)
+    return result
   end
 
   def delete()
     sql = "DELETE FROM games WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM games WHERE id = $1"
+    values = [id]
+    game = SqlRunner.run(sql, values)[0]
+    result = Game.new(game)
+    return result
   end
 
   def self.all
