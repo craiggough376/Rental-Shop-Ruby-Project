@@ -30,6 +30,13 @@ class Rental
     SqlRunner.run(sql, values)
   end
 
+  def customer()
+    sql = "SELECT * FROM customers WHERE id = $1"
+    values = [@customer_id]
+    customer = SqlRunner.run(sql, values)[0]
+    result = Customer.new(customer)
+  end
+
   def self.all
     sql = "SELECT * FROM rentals"
     rentals = SqlRunner.run(sql)

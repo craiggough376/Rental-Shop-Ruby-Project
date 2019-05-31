@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("../models/customer.rb")
 
 class Customer
 
@@ -28,6 +29,13 @@ class Customer
     sql = "DELETE FROM customers WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def rentals()
+    sql = "SELECT * FROM rentals WHERE customer_id = $1"
+    values = [@id]
+    rentals = SqlRunner.run(sql, values)
+    result = rentals.map{ |rental|Rental.new(rental) }
   end
 
   def self.all
