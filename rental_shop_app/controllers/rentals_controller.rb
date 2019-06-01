@@ -12,6 +12,16 @@ get '/rentals' do
   erb(:"rentals/index")
 end
 
+get '/rentals/new' do
+  erb(:"rentals/new")
+end
+
+post '/rentals' do
+  @rental = Rental.new(params)
+  @rental.save()
+  erb(:"rentals/show")
+end
+
 get '/rentals/:id' do
   @rental = Rental.find(params[:id])
   erb(:"rentals/show")

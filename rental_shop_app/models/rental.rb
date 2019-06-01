@@ -2,25 +2,26 @@ require_relative("../db/sql_runner")
 
 class Rental
 
-  attr_accessor :id, :customer_id, :game_id
+  attr_accessor :id, :customer_id, :game_id, :rental_period
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @customer_id = options['customer_id']
     @game_id = options['game_id']
+    @rental_period = options['rental_period'].to_i
   end
 
   def save()
-    sql = "INSERT INTO rentals (customer_id, game_id) VALUES ($1, $2)
+    sql = "INSERT INTO rentals (customer_id, game_id, rental_period) VALUES ($1, $2, $3)
     RETURNING id"
-    values = [@customer_id, @game_id]
+    values = [@customer_id, @game_id, @rental_period]
     game = SqlRunner.run(sql, values)[0]
     @id = game['id'].to_i
   end
 
   def update()
-    sql = "UPDATE rentals SET (customer_id, game_id) = ($1, $2)
-    WHERE id = $3"
-    values = [@customer_id, @game_id, @id]
+    sql = "UPDATE rentals SET (customer_id, game_id, rental_period) = ($1, $2, $3)
+    WHERE id = $4"
+    values = [@customer_id, @game_id, @rental_period, @id]
     SqlRunner.run(sql, values)
   end
 

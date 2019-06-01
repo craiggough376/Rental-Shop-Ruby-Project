@@ -1,5 +1,7 @@
+<p>Rental Number: <%= @rental.id %></p>
 <p>Customer: <%= @rental.customer_id %></p>
 <p>Game: <%= @rental.game_id %></p>
+<p>Rental Period: <%= @rental.rental_period %></p>
 
   <form action="/rentals/<%= @rental.id %>/edit" method="get">
     <input type="submit" value="Edit">
