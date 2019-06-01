@@ -13,6 +13,8 @@ get '/rentals' do
 end
 
 get '/rentals/new' do
+  @customers = Customer.all()
+  @games = Game.all()
   erb(:"rentals/new")
 end
 
@@ -27,6 +29,8 @@ end
 
 get '/rentals/:id' do
   @rental = Rental.find(params[:id])
+  @customer = Customer.find(@rental.customer_id)
+  @game = Game.find(@rental.game_id)
   erb(:"rentals/show")
 end
 
@@ -43,15 +47,11 @@ end
 
 get '/rentals/:id/return' do
   @rental = Rental.find(params[:id])
-  if @rental.return == true
-      return "Already returned"
-    else
   @rental.rental_status = "Returned"
   @rental.update()
   @game = Game.find(@rental.game_id)
   @game.quantity += 1
   @game.update()
-  end
   erb(:"rentals/return")
 end
 

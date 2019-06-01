@@ -8,7 +8,7 @@ class Rental
     @customer_id = options['customer_id']
     @game_id = options['game_id']
     @rental_period = options['rental_period'].to_i
-    @rental_status = options['rental_status']
+    @rental_status = "Rented"
   end
 
   def save()
@@ -46,12 +46,12 @@ class Rental
     result = games.map { |game|Game.new(game)  }
   end
 
-  def return()
-    if @rental_status == "Returned"
-      return true
-    end
-    return false
-  end
+  # def return_game()
+  #   if @rental_status == "Returned"
+  #     return true
+  #   end
+  #   return false
+  # end
 
   def self.find(id)
     sql = "SELECT * FROM rentals WHERE id = $1"

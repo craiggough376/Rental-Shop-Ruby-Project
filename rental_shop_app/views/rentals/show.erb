@@ -1,8 +1,13 @@
 <p>Rental Number: <%= @rental.id %></p>
-<p>Customer: <%= @rental.customer_id %></p>
-<p>Game: <%= @rental.game_id %></p>
+<hr>
+<p>Customer: <%= @customer.name %></p>
+<p><a href="/customers/<%= @customer.id %>">Select Customer</a></p>
+<p>Game: <%= @game.title %></p>
+<p><a href="/games/<%= @game.id %>">Select Game</a></p>
+<hr>
 <p>Rental Period: <%= @rental.rental_period %></p>
 <p>Rental Status: <%= @rental.rental_status %></p>
+
 
   <form action="/rentals/<%= @rental.id %>/edit" method="get">
     <input type="submit" value="Edit">

@@ -1,10 +1,17 @@
 <form method="post" action="/rentals">
 
-  <label for="customer_id">Customer</label>
-  <input type="number" name="customer_id" id="customer_id"/>
-
-  <label for="game_id">Game</label>
-  <input type="number" name="game_id" id="game_id"/>
+  <label for="customer_id">Select Customer</label>
+  <select name="customer_id">
+    <% for customer in @customers %>
+    <option value="<%= customer.id %>"><%= customer.name %></option>
+    <% end %>
+  </select>
+  <label for="game_id">Select Game</label>
+  <select name="game_id">
+    <% for game in @games %>
+    <option value="<%= game.id %>"><%= game.title %></option>
+    <% end %>
+  </select>
 
   <label for="rental_period">Rental Period</label>
   <input type="number" name="rental_period" id="rental_period"/>
