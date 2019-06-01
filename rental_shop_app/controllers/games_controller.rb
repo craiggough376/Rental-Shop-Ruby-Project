@@ -26,3 +26,15 @@ post '/games/:id' do
   @game.update()
   erb(:"games/show")
 end
+
+post '/games/:id/delete' do
+  @game = Game.find(params['id'])
+  @game.delete()
+  erb(:"games/delete")
+end
+
+get '/games/:id/rentals' do
+  @game = Game.find(params['id'])
+  @rentals = @game.rentals()
+  erb(:"games/rentals")
+end

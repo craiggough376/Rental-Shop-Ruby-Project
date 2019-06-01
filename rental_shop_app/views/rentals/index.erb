@@ -1,3 +1,5 @@
+<p><a href="/">Home</a></p>
+<hr>
 <% for rental in @rentals %>
 <p>Rental Number: <%= rental.id %></p>
 <p>Customer: <% customer = Customer.find(rental.customer_id) %></p>

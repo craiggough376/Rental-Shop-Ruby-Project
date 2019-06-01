@@ -47,5 +47,5 @@ rental2.save()
 # game1.delete()
 # rental1.delete()
 
-# binding.pry
-# nil
+binding.pry
+nil

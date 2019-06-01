@@ -65,5 +65,7 @@ end
 # end
 
 get '/rentals/:id/delete' do
+  @rental = Rental.find(params['id'])
+  @rental.delete()
   erb(:"rentals/delete")
 end

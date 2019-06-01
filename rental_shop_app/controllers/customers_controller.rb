@@ -29,7 +29,13 @@ end
 
 #show customers rented games
 get '/customers/:id/games' do
-  customer = Customer.find(params[:id])
-  @games = customer.games
+  @customer = Customer.find(params[:id])
+  @games = @customer.games
   erb(:"customers/games")
+end
+
+post '/customers/:id/delete' do
+  @customer = Customer.find(params['id'])
+  @customer.delete()
+  erb(:"customers/delete")
 end

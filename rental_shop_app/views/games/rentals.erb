@@ -1,0 +1,6 @@
+<p><a href="/games/<%=@game.id%>">Back</a></p>
+
+<% for rental in @rentals %>
+<%= rental.customer_id %>
+<%= rental.game_id %>
+<% end %>
