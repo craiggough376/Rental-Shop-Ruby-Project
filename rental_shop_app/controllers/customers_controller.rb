@@ -26,3 +26,10 @@ post "/customers/:id" do
   @customer.update()
   erb(:"customers/show")
 end
+
+#show customers rented games
+get '/customers/:id/games' do
+  customer = Customer.find(params[:id])
+  @games = customer.games
+  erb(:"customers/games")
+end

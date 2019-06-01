@@ -28,7 +28,7 @@ customer6.save()
 customer7.save()
 
 rental1 = Rental.new({"customer_id" => customer1.id, "game_id" => game1.id, "rental_period" => 7})
-rental2 = Rental.new({"customer_id" => customer3.id, "game_id" => game2.id, "rental_period" => 2})
+rental2 = Rental.new({"customer_id" => customer1.id, "game_id" => game2.id, "rental_period" => 2})
 rental1.save()
 rental2.save()
 
@@ -40,9 +40,12 @@ rental2.save()
 # customer1.email = "frankwest@outlook.com"
 # customer1.update
 
+# game1.quantity -= 1
+# game1.update()
+
 # customer1.delete()
 # game1.delete()
 # rental1.delete()
 
-binding.pry
-nil
+# binding.pry
+# nil

@@ -19,6 +19,9 @@ end
 post '/rentals' do
   @rental = Rental.new(params)
   @rental.save()
+  @game = Game.find(params['game_id'])
+  @game.quantity -= 1
+  @game.update()
   erb(:"rentals/show")
 end
 
