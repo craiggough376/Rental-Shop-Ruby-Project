@@ -5,9 +5,9 @@ require_relative('../models/rental.rb')
 require('pry')
 
 game1 = Game.new({"title" => "God of War", "console" => "PS4",
-                  "genre" => "Action-Adventure", "rental_status" => "Available", "quantity" => 7})
+                  "genre" => "Action-Adventure", "quantity" => 7})
 game2 = Game.new({"title" => "Spiderman", "console" => "PS4",
-                  "genre" => "Action", "rental_status" => "Available", "quantity" => 7})
+                  "genre" => "Action", "quantity" => 7})
 game1.save()
 game2.save()
 

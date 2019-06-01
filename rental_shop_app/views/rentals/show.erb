@@ -2,10 +2,14 @@
 <p>Customer: <%= @rental.customer_id %></p>
 <p>Game: <%= @rental.game_id %></p>
 <p>Rental Period: <%= @rental.rental_period %></p>
+<p>Rental Status: <%= @rental.rental_status %></p>
 
   <form action="/rentals/<%= @rental.id %>/edit" method="get">
     <input type="submit" value="Edit">
   </form>
-  <form method="post" action="/rentals/<%= @rental.id %>/delete" >
+  <form method="get" action="/rentals/<%= @rental.id %>/delete" >
     <input type="submit" value="Delete">
+  </form>
+  <form action="/rentals/<%= @rental.id %>/return" method="get">
+    <input type="submit" value="Return">
   </form>

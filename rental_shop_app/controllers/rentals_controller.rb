@@ -40,3 +40,30 @@ post '/rentals/:id' do
   @rental.update()
   erb(:"rentals/show")
 end
+
+get '/rentals/:id/return' do
+  @rental = Rental.find(params[:id])
+  if @rental.return == true
+      return "Already returned"
+    else
+  @rental.rental_status = "Returned"
+  @rental.update()
+  @game = Game.find(@rental.game_id)
+  @game.quantity += 1
+  @game.update()
+  end
+  erb(:"rentals/return")
+end
+
+# get '/rentals/:id/return' do
+#   @rental = Rental.find(params[:id])
+#   @rental.rental_status = "Returned"
+#   @rental.update()
+#   @game = Game.find(@rental.game_id)
+#   @game.return(@game)
+#   erb(:"rentals/return")
+# end
+
+get '/rentals/:id/delete' do
+  erb(:"rentals/delete")
+end

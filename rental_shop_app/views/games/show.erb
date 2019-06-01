@@ -1,7 +1,6 @@
 <p>Title: <%= @game.title %></p>
 <p>Console: <%= @game.console %></p>
 <p>In Stock: <%= @game.quantity %></p>
-<p>Rental Status: <%= @game.rental_status %></p>
 
   <form action="/games/<%= @game.id %>/edit" method="get">
     <input type="submit" value="Edit">
