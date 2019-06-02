@@ -42,11 +42,21 @@ class Game
     SqlRunner.run(sql, values)
   end
 
-  # def reduce_quantity(id)
-  #   sql = "UPDATE games SET (quantity) = ($1) WHERE id = $2"
-  #   values = [id]
-  #   SqlRunner.run(sql, values)
-  # end
+  def rentals()
+    sql = "SELECT * FROM rentals WHERE game_id = $1"
+    values = [@id]
+    rentals = SqlRunner.run(sql, values)
+    result = rentals.map { |rental|Rental.new(rental)  }
+    return result
+  end
+
+  def reduce_quantity()
+    @quantity -= 1
+  end
+
+  def increase_quantity()
+    @quantity += 1
+  end
 
   def self.find(id)
     sql = "SELECT * FROM games WHERE id = $1"

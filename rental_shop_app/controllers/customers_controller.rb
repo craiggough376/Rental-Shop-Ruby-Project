@@ -22,7 +22,7 @@ end
 post '/customers' do
   @customer = Customer.new(params)
   @customer.save()
-  erb(:create)
+  erb(:"customers/show")
 end
 
 #show

@@ -1,5 +1,3 @@
-<p><a href="/customers">Back</a></p>
-
 <p>Name: <%= @customer.name %></p>
 <p>Email: <%= @customer.email %></p>
 
@@ -10,5 +8,5 @@
     <input type="submit" value="Delete">
   </form>
   <form method="get" action="/customers/<%= @customer.id %>/games" >
-    <input type="submit" value="View Rented Games">
+    <input type="submit" value="View Rental History">
   </form>

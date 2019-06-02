@@ -46,12 +46,9 @@ class Rental
     result = games.map { |game|Game.new(game)  }
   end
 
-  # def return_game()
-  #   if @rental_status == "Returned"
-  #     return true
-  #   end
-  #   return false
-  # end
+  def return_rental()
+    @rental_status = false
+  end
 
   def self.find(id)
     sql = "SELECT * FROM rentals WHERE id = $1"

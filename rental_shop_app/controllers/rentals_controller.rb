@@ -20,13 +20,6 @@ get '/rentals/new' do
 end
 
 #create
-post '/rentals/:id' do
-  @rental = Rental.new(params)
-  @rental.update()
-  erb(:"rentals/save")
-end
-
-
 post '/rentals' do
   @rental = Rental.new(params)
   @rental.save()
@@ -54,7 +47,24 @@ get '/rentals/:id/edit' do
 end
 
 #update
+post '/rentals/:id' do
+  @rental = Rental.new(params)
+  @rental.update
+  @customer = Customer.find(@rental.customer_id)
+  @game = Game.find(@rental.game_id)
+  erb(:"rentals/show")
+end
 
+
+#delete
+get '/rentals/:id/delete' do
+  @rental = Rental.find(params['id'])
+  @rental.delete()
+  erb(:"rentals/delete")
+end
+
+
+#return
 get '/rentals/:id/return' do
   @rental = Rental.find(params[:id])
   @rental.rental_status = "Returned"
@@ -73,10 +83,3 @@ end
 #   @game.return(@game)
 #   erb(:"rentals/return")
 # end
-
-#delete
-get '/rentals/:id/delete' do
-  @rental = Rental.find(params['id'])
-  @rental.delete()
-  erb(:"rentals/delete")
-end
