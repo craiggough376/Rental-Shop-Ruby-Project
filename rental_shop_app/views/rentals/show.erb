@@ -1,10 +1,6 @@
 <p>Rental Number: <%= @rental.id %></p>
-<hr>
-<p>Customer: <%= @customer.name %></p>
-<p><a href="/customers/<%= @customer.id %>">Select Customer</a></p>
-<p>Game: <%= @game.title %></p>
-<p><a href="/games/<%= @game.id %>">Select Game</a></p>
-<hr>
+<p>Customer: <%= @customer.name %> <a href="/customers/<%= @customer.id %>">Select Customer</a></p>
+<p>Game: <%= @game.title %> <a href="/games/<%= @game.id %>">Select Game</a></p>
 <p>Rental Period: <%= @rental.rental_period %></p>
 <p>Rental Status: <%= @rental.rental_status %></p>
 

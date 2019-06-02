@@ -6,27 +6,38 @@ require_relative( '../models/game.rb' )
 require_relative( '../models/rental.rb' )
 also_reload( '../models/*' )
 
-
+#index
 get '/rentals' do
   @rentals = Rental.all()
   erb(:"rentals/index")
 end
 
+#new
 get '/rentals/new' do
   @customers = Customer.all()
   @games = Game.all()
   erb(:"rentals/new")
 end
 
+#create
+post '/rentals/:id' do
+  @rental = Rental.new(params)
+  @rental.update()
+  erb(:"rentals/save")
+end
+
+
 post '/rentals' do
   @rental = Rental.new(params)
   @rental.save()
+  @customer = Customer.find(params['customer_id'])
   @game = Game.find(params['game_id'])
   @game.quantity -= 1
   @game.update()
   erb(:"rentals/show")
 end
 
+#show
 get '/rentals/:id' do
   @rental = Rental.find(params[:id])
   @customer = Customer.find(@rental.customer_id)
@@ -34,16 +45,15 @@ get '/rentals/:id' do
   erb(:"rentals/show")
 end
 
+#edit
 get '/rentals/:id/edit' do
   @rental = Rental.find(params[:id])
+  @customers = Customer.all()
+  @games = Game.all()
   erb(:"rentals/edit")
 end
 
-post '/rentals/:id' do
-  @rental = Rental.new(params)
-  @rental.update()
-  erb(:"rentals/show")
-end
+#update
 
 get '/rentals/:id/return' do
   @rental = Rental.find(params[:id])
@@ -64,6 +74,7 @@ end
 #   erb(:"rentals/return")
 # end
 
+#delete
 get '/rentals/:id/delete' do
   @rental = Rental.find(params['id'])
   @rental.delete()

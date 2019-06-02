@@ -1,14 +1,22 @@
 <form method="post" action="/rentals/<%= @rental.id %>">
 
-  <label for="customer_id">Customer ID</label>
-  <input type="text" id="customer_id" name="customer_id" value="<%=@rental.customer_id%>"/>
+  <label for="customer_id">Customer</label>
+  <select name="customer_id">
+    <% for customer in @customers %>
+    <option value="<%= customer.id %>"><%= customer.name %></option>
+    <% end %>
+  </select>
 
-  <label for="game_id">Game ID</label>
-  <input type="text" id="game_id" name="game_id" value="<%=@rental.game_id%>"/>
+  <label for="game_id">Game</label>
+  <select name="game_id">
+    <% for game in @games %>
+    <option value="<%= game.id %>"><%= game.title %></option>
+    <% end %>
+  </select>
 
-  <label for="rental_period">Rental Period</label>
-  <input type="text" id="rental_period" name="rental_period" value="<%=@rental.rental_period%>"/>
-
+  <label for="rental_period">Rental Period
+  <input type="number" id="rental_period" name="rental_period" value="<%=@rental.rental_period%>"/>
+    days</label>
   <label for="rental_status">Rental Status</label>
   <input type="text" id="rental_status" name="rental_status" value="<%=@rental.rental_status%>"/>
 
