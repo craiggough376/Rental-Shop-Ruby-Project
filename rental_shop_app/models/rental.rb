@@ -8,7 +8,7 @@ class Rental
     @customer_id = options['customer_id']
     @game_id = options['game_id']
     @rental_period = options['rental_period'].to_i
-    @rental_status = "Rented"
+    @rental_status = options['rental_status']
   end
 
   def save()
@@ -44,10 +44,6 @@ class Rental
     values = [@game_id]
     games = SqlRunner.run(sql, values)
     result = games.map { |game|Game.new(game)  }
-  end
-
-  def return_rental()
-    @rental_status = false
   end
 
   def self.find(id)

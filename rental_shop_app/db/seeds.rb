@@ -27,8 +27,8 @@ customer5.save()
 customer6.save()
 customer7.save()
 
-rental1 = Rental.new({"customer_id" => customer1.id, "game_id" => game1.id, "rental_period" => 7})
-rental2 = Rental.new({"customer_id" => customer1.id, "game_id" => game2.id, "rental_period" => 2})
+rental1 = Rental.new({"customer_id" => customer1.id, "game_id" => game1.id, "rental_period" => 7, "rental_status" => "Renting"})
+rental2 = Rental.new({"customer_id" => customer1.id, "game_id" => game2.id, "rental_period" => 2, "rental_status" => "Renting"})
 rental1.save()
 rental2.save()
 

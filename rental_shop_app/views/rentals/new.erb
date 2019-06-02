@@ -9,6 +9,7 @@
     <option value="<%= customer.id %>"><%= customer.name %></option>
     <% end %>
   </select>
+
   <label for="game_id">Select Game</label>
   <select name="game_id">
     <% for game in @games %>
@@ -18,6 +19,12 @@
 
   <label for="rental_period">Rental Period</label>
   <input type="number" name="rental_period" id="rental_period"/>
+
+  <label for="rental_status">Rental Status</label>
+  <select name="rental_status">
+    <option value="Renting">Renting</option>
+    <option value="Returned">Returned</option>
+  </select>
 
 <input type="submit" value="Save">
 
