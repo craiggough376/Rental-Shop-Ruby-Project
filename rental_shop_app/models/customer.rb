@@ -42,6 +42,14 @@ class Customer
     return result
   end
 
+  def rentals()
+    sql = "SELECT * FROM rentals WHERE customer_id = $1"
+    values = [@id]
+    rentals = SqlRunner.run(sql, values)
+    result = rentals.map { |rental|Rental.new(rental) }
+    return result
+  end
+
   def self.find(id)
     sql = "SELECT * FROM customers WHERE id = $1"
     values = [id]

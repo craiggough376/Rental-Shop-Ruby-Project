@@ -51,9 +51,9 @@ post '/customers/:id/delete' do
   erb(:"customers/delete")
 end
 
-#show customers rented games
-get '/customers/:id/games' do
+#show customers rentals
+get '/customers/:id/rentals' do
   @customer = Customer.find(params[:id])
-  @games = @customer.games
-  erb(:"customers/games")
+  @rentals = @customer.rentals
+  erb(:"customers/rentals")
 end

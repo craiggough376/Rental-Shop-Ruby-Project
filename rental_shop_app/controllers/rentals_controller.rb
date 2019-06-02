@@ -74,12 +74,3 @@ get '/rentals/:id/return' do
   @game.update()
   erb(:"rentals/return")
 end
-
-# get '/rentals/:id/return' do
-#   @rental = Rental.find(params[:id])
-#   @rental.rental_status = "Returned"
-#   @rental.update()
-#   @game = Game.find(@rental.game_id)
-#   @game.return(@game)
-#   erb(:"rentals/return")
-# end
