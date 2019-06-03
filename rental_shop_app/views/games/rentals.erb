@@ -5,7 +5,5 @@
 <a href="/rentals/<%=rental.id%>">View Rental</a></p>
 <p>Customer: <% name = Customer.find(rental.customer_id)%><%= name.name%>
 <a href="/customers/<%=rental.customer_id%>">View Customer</a></p>
-<p>Game: <% title = Game.find(rental.game_id)%><%= title.title %>
-<a href="/games/<%=rental.game_id%>">View Game</a></p>
 <hr>
 <% end %>

@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="main.css">
-  <title>Document</title>
   <div class="header">
-    <a href="/">Home</a>
-    <a href="/rentals">Rentals List</a>
-    <a href="/customers">Customer List</a>
-    <a href="/games">Game List</a>
-  </div>
-  <hr>
+    <nav>
+      <h1>Rental Breakdown</h1>
+      <li><a href="/">Home</a></li>
+      <li><a href="/rentals">Rentals List</a></li>
+      <li><a href="/customers">Customer List</a></li>
+      <li><a href="/games">Game List</a></li>
+    </nav>
 </head>
-<body>
+<body class="container">
 <%= yield %>
 </body>
 </html>

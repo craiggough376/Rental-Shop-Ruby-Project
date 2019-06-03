@@ -1,3 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: lightblue;
+  background-color: lightgrey;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+nav {
+  background: #EB1933;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header h1{
+  align-content: left;
+}
+
+.container {
+  margin: 0 auto;
+  justify-content: center;
+}
+
+
+/* body {
+  background-color: lightgrey;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.header {
+
+  padding: 20px;
+  background: #EB1933;
+  font-size: 15px;
+}
+
+.header a {
+  color: white;
+
+}
+
+.header h1 {
+
 }

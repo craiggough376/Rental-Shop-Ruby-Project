@@ -63,14 +63,17 @@ get '/rentals/:id/delete' do
   erb(:"rentals/delete")
 end
 
-
 #return
 get '/rentals/:id/return' do
   @rental = Rental.find(params[:id])
+  if @rental.rental_status == "Returned"
+    return "Already Returned"
+  else
   @rental.rental_status = "Returned"
   @rental.update()
   @game = Game.find(@rental.game_id)
   @game.quantity += 1
   @game.update()
+  end
   erb(:"rentals/return")
 end
