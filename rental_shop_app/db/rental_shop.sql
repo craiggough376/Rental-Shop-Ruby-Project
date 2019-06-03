@@ -6,7 +6,8 @@ CREATE TABLE games(
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
   console VARCHAR(255),
-  quantity INT4
+  quantity INT4,
+  image VARCHAR(255)
 );
 
 CREATE TABLE customers(

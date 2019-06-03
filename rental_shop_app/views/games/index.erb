@@ -2,6 +2,7 @@
 <a href="/games/new">Add Game</a>
 <hr>
 <% for game in @games %>
+<img src="<%= game.image%>" height="150"/>
 <p>Title: <%= game.title %></p>
 <p>Console: <%= game.console %></p>
 <p>In Stock: <%= game.quantity %></p>
