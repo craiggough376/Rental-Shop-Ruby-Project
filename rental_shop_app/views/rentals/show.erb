@@ -3,6 +3,7 @@
 <p>Game: <%= @game.title %> <a href="/games/<%= @game.id %>">Select Game</a></p>
 <p>Rental Period: <%= @rental.rental_period %></p>
 <p>Rental Status: <%= @rental.rental_status %></p>
+<p>Date Rented: <%= @rental.date_rented %></p>
 
 
   <form action="/rentals/<%= @rental.id %>/edit" method="get">

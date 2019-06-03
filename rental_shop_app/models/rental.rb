@@ -2,27 +2,28 @@ require_relative("../db/sql_runner")
 
 class Rental
 
-  attr_accessor :id, :customer_id, :game_id, :rental_period, :rental_status
+  attr_accessor :id, :customer_id, :game_id, :rental_period, :rental_status, :date_rented
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @customer_id = options['customer_id']
     @game_id = options['game_id']
     @rental_period = options['rental_period'].to_i
     @rental_status = options['rental_status']
+    @date_rented = Date.parse(options['date_rented'])
   end
 
   def save()
-    sql = "INSERT INTO rentals (customer_id, game_id, rental_period, rental_status) VALUES ($1, $2, $3, $4)
+    sql = "INSERT INTO rentals (customer_id, game_id, rental_period, rental_status, date_rented) VALUES ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@customer_id, @game_id, @rental_period, @rental_status]
+    values = [@customer_id, @game_id, @rental_period, @rental_status, @date_rented]
     game = SqlRunner.run(sql, values)[0]
     @id = game['id'].to_i
   end
 
   def update()
-    sql = "UPDATE rentals SET (customer_id, game_id, rental_period, rental_status) = ($1, $2, $3, $4)
-    WHERE id = $5"
-    values = [@customer_id, @game_id, @rental_period, @rental_status, @id]
+    sql = "UPDATE rentals SET (customer_id, game_id, rental_period, rental_status, date_rented) = ($1, $2, $3, $4, $5)
+    WHERE id = $6"
+    values = [@customer_id, @game_id, @rental_period, @rental_status, @date_rented, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -44,6 +45,24 @@ class Rental
     values = [@game_id]
     games = SqlRunner.run(sql, values)
     result = games.map { |game|Game.new(game)  }
+  end
+
+  def returned()
+    if @rental_status == "Returned"
+      return true
+    end
+  end
+
+  def overdue()
+    if (@date_rented + @rental_period) < Date.today
+      return true
+    end
+  end
+
+  def days_due()
+    now = Date.today
+    due_date = (@date_rented + @rental_period)
+    difference = (due_date-now).to_i
   end
 
   def self.find(id)

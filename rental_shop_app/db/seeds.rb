@@ -36,16 +36,16 @@ customer3.save()
 customer4.save()
 
 
-rental1 = Rental.new({"customer_id" => customer1.id, "game_id" => game1.id, "rental_period" => 7, "rental_status" => "Renting"})
-rental2 = Rental.new({"customer_id" => customer1.id, "game_id" => game2.id, "rental_period" => 2, "rental_status" => "Returned"})
-rental3 = Rental.new({"customer_id" => customer1.id, "game_id" => game3.id, "rental_period" => 2, "rental_status" => "Renting"})
-rental4 = Rental.new({"customer_id" => customer2.id, "game_id" => game4.id, "rental_period" => 4, "rental_status" => "Renting"})
-rental5 = Rental.new({"customer_id" => customer2.id, "game_id" => game2.id, "rental_period" => 2, "rental_status" => "Renting"})
-rental6 = Rental.new({"customer_id" => customer3.id, "game_id" => game5.id, "rental_period" => 7, "rental_status" => "Renting"})
-rental7 = Rental.new({"customer_id" => customer3.id, "game_id" => game6.id, "rental_period" => 7, "rental_status" => "Returned"})
-rental8 = Rental.new({"customer_id" => customer3.id, "game_id" => game10.id, "rental_period" => 1, "rental_status" => "Returned"})
-rental9 = Rental.new({"customer_id" => customer4.id, "game_id" => game7.id, "rental_period" => 2, "rental_status" => "Renting"})
-rental10 = Rental.new({"customer_id" => customer4.id, "game_id" => game8.id, "rental_period" => 2, "rental_status" => "Returned"})
+rental1 = Rental.new({"customer_id" => customer1.id, "game_id" => game1.id, "rental_period" => 7, "rental_status" => "Renting", "date_rented" => "2019-06-01"})
+rental2 = Rental.new({"customer_id" => customer1.id, "game_id" => game2.id, "rental_period" => 7, "rental_status" => "Returned", "date_rented" => "2019/06/01"})
+rental3 = Rental.new({"customer_id" => customer1.id, "game_id" => game3.id, "rental_period" => 7, "rental_status" => "Renting", "date_rented" => "2019/06/01"})
+rental4 = Rental.new({"customer_id" => customer2.id, "game_id" => game4.id, "rental_period" => 7, "rental_status" => "Renting", "date_rented" => "2019/06/01"})
+rental5 = Rental.new({"customer_id" => customer2.id, "game_id" => game2.id, "rental_period" => 7, "rental_status" => "Renting", "date_rented" => "2019/06/01"})
+rental6 = Rental.new({"customer_id" => customer3.id, "game_id" => game5.id, "rental_period" => 7, "rental_status" => "Renting", "date_rented" => "2019/06/01"})
+rental7 = Rental.new({"customer_id" => customer3.id, "game_id" => game6.id, "rental_period" => 7, "rental_status" => "Returned", "date_rented" => "2019/06/01"})
+rental8 = Rental.new({"customer_id" => customer3.id, "game_id" => game10.id, "rental_period" => 7, "rental_status" => "Returned", "date_rented" => "2019/06/01"})
+rental9 = Rental.new({"customer_id" => customer4.id, "game_id" => game7.id, "rental_period" => 2, "rental_status" => "Renting", "date_rented" => "2019/05/20"})
+rental10 = Rental.new({"customer_id" => customer4.id, "game_id" => game8.id, "rental_period" => 2, "rental_status" => "Returned", "date_rented" => "2019/05/20"})
 rental1.save()
 rental2.save()
 rental3.save()
@@ -73,6 +73,6 @@ rental10.save()
 # rental1.delete()
 
 # rental1.return_rental()
-# 
-# binding.pry
-# nil
+#
+binding.pry
+nil

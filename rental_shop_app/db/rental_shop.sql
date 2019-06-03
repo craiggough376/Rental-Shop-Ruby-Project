@@ -20,5 +20,6 @@ CREATE TABLE rentals(
   customer_id INT4 REFERENCES customers(id) ON DELETE CASCADE,
   game_id INT4 REFERENCES games(id) ON DELETE CASCADE,
   rental_period INT4,
-  rental_status VARCHAR(255)
+  rental_status VARCHAR(255),
+  date_rented DATE
 );
