@@ -49,6 +49,7 @@ end
 #update
 post '/rentals/:id' do
   @rental = Rental.new(params)
+  @rental.rental_status = Rental.find(params['id']).rental_status
   @rental.update
   @customer = Customer.find(@rental.customer_id)
   @game = Game.find(@rental.game_id)

@@ -18,15 +18,9 @@
   <input type="number" id="rental_period" name="rental_period" value="<%=@rental.rental_period%>"/>
     days</label>
 
-  <label for="rental_status">Rental Status</label>
-  <select name="rental_status">
-    <option value="<%=@rental.rental_status%>"></option>
-    <option value="Renting">Renting</option>
-    <option value="Returned">Returned</option>
-  </select>
-  <input type="submit" value="Save">
-
   <label for="date_rented">Date Rented</label>
   <input type="date" id="date_rented" name="date_rented" value="<%= @rental.date_rented%>">
+
+    <input type="submit" value="Save">
 
 </form>

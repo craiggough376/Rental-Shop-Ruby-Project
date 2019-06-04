@@ -57,3 +57,10 @@ get '/customers/:id/rentals' do
   @rentals = @customer.rentals
   erb(:"customers/rentals")
 end
+
+#show customers current rentals
+get '/customers/:id/current_rentals' do
+  @customer = Customer.find(params[:id])
+  @rentals = @customer.rentals
+  erb(:"customers/current_rentals")
+end

@@ -1,6 +1,8 @@
 <h2>Rentals</h2>
 <a href="rentals/new">Add Rental</a>
+<br>
 <hr>
+<rb></rb>
 <% for rental in @rentals %>
 <p>Rental Number: <%= rental.id %></p>
 <p>Customer: <% customer = Customer.find(rental.customer_id) %><%= customer.name%>
@@ -11,5 +13,6 @@
 <p>Rental Status: <%= rental.rental_status %></p>
 <p>Date Rented: <%= rental.date_rented %></p>
 <p><a href="/rentals/<%= rental.id %>">Select Rental</a></p>
+<br>
 <hr>
 <% end %>

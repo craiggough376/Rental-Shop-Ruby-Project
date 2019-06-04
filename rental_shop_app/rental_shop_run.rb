@@ -11,5 +11,6 @@ also_reload( '../models/*' )
 
 get '/' do
   @rentals = Rental.all
+  @games = Game.all
   erb( :index )
 end

@@ -2,27 +2,28 @@ require_relative("../db/sql_runner")
 
 class Game
 
-  attr_accessor :id, :title, :console, :quantity, :image
+  attr_accessor :id, :title, :console, :genre, :quantity, :image
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @console = options['console']
+    @genre = options['genre']
     @quantity = options['quantity'].to_i
     @image = options['image']
   end
 
   def save()
-    sql = "INSERT INTO games (title, console, quantity, image) VALUES ($1, $2, $3, $4)
+    sql = "INSERT INTO games (title, console, genre, quantity, image) VALUES ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@title, @console, @quantity, @image]
+    values = [@title, @console, @genre, @quantity, @image]
     game = SqlRunner.run(sql, values)[0]
     @id = game['id'].to_i
   end
 
   def update()
-    sql = "UPDATE games SET (title, console, quantity, image) = ($1, $2, $3, $4)
-    WHERE id = $5"
-    values = [@title, @console, @quantity, @image, @id]
+    sql = "UPDATE games SET (title, console, genre, quantity, image) = ($1, $2, $3, $4, $5)
+    WHERE id = $6"
+    values = [@title, @console, @genre, @quantity, @image, @id]
     SqlRunner.run(sql, values)
   end
 

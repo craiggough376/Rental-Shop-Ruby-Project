@@ -1,3 +1,5 @@
+<p><a href="/games/<%=@game.id%>">Back</a></p>
+
 <form method="post" action="/games/<%= @game.id %>">
 
   <label for="title">Title</label>
@@ -5,6 +7,9 @@
 
   <label for="console">Console</label>
   <input type="text" id="console" name="console" value="<%= @game.console %>"/>
+
+  <label for="genre">Genre</label>
+  <input type="text" id="genre" name="genre" value="<%= @game.genre %>"/>
 
   <label for="quantity">In Stock</label>
   <input type="text" id="quantity" name="quantity" value="<%= @game.quantity %>"/>
