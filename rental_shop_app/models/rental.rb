@@ -53,6 +53,10 @@ class Rental
     end
   end
 
+  def display_due_date()
+    @date_rented + @rental_period
+  end
+
   def overdue()
     if (@date_rented + @rental_period) < Date.today
       return true

@@ -13,6 +13,9 @@
   <form method="post" action="/games/<%= @game.id %>/delete" >
     <input type="submit" value="Delete">
   </form>
-  <form method="get" action="/games/<%= @game.id %>/rentals" >
+  <form method="get" action="/games/<%= @game.id %>/current_rentals" >
     <input type="submit" value="View Current Rentals">
+  </form>
+  <form method="get" action="/games/<%= @game.id %>/rentals" >
+    <input type="submit" value="View Rental History">
   </form>

@@ -3,19 +3,22 @@
     <input type="text" placeholder="Enter Rental Id.." name="id">
     <button type="submit">Search</button>
 </form> -->
+
 <div class="scrollmenu">
   <% for game in @games %>
   <a href="/games/<%= game.id %>"><img src="<%= game.image %>" height="150"></a>
   <% end %>
 </div>
 <br>
-<p><a href="/rentals/new">Add New Rental</a></p>
-<p><a href="/games/new">Add New Game</a></p>
-<p><a href="/customers/new">Add New Customer</a></p>
+<a href="/rentals/new">Add New Rental</a>
+<a href="/games/new">Add New Game</a>
+<a href="/customers/new">Add New Customer</a>
 <hr>
-<div>
+<section class="home">
+<div class="home_boxes">
 <h2>Current Rentals</h2>
 <br>
+<div class="box-content">
 <% for rental in @rentals %>
 <% if rental.rental_status == "Renting" && (rental.overdue == nil)%>
 <p>Rental Number: <%= rental.id %> <a href="/rentals/<%= rental.id %>">View Rental</a></p>
@@ -23,7 +26,6 @@
 <a href="/customers/<%= customer.id %>">View Customer</a></p>
 <p>Game: <% game = Game.find(rental.game_id)%><%= game.title %>
 <a href="/games/<%= game.id %>">View Game</a></p>
-<p>Rental Period: <%= rental.rental_period %> Days</p>
 <p>Days Left: <%= rental.days_due%></p>
 <br>
 <hr>
@@ -31,10 +33,12 @@
 <% end %>
 <hr>
 </div>
+</div>
 
-<div>
+<div class="home_boxes">
 <h2>Overdue Rentals</h2>
 <br>
+<div class="box-content">
 <% for rental in @rentals %>
 <% if rental.overdue && (rental.returned == nil) %>
 <p>Rental Number: <%= rental.id %> <a href="/rentals/<%= rental.id %>">View Rental</a></p>
@@ -47,7 +51,11 @@
 <hr>
 <% end %>
 <% end %>
+</div>
+</div>
 
+<div class="home_boxes">
+  <div class="box-content">
 <h2>Low Stock</h2>
 <br>
 <% for game in @games %>
@@ -58,5 +66,6 @@
 <hr>
 <% end %>
 <% end %>
-
 </div>
+</div>
+</section>

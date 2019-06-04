@@ -78,3 +78,15 @@ get '/rentals/:id/return' do
   end
   erb(:"rentals/return")
 end
+
+#show all current rentals
+get '/rentals/current_rentals' do
+  @rentals = Rental.all()
+  erb(:"rentals/current_rentals")
+end
+
+#show all overdue
+get '/rentals/overdue' do
+  @rentals = Rental.all()
+  erb(:"rentals/overdue")
+end

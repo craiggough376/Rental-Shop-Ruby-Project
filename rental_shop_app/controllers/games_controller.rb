@@ -59,3 +59,10 @@ get '/games/:id/rentals' do
   @rentals = @game.rentals()
   erb(:"games/rentals")
 end
+
+#show games current rentals
+get '/games/:id/current_rentals' do
+  @game = Game.find(params[:id])
+  @rentals = @game.rentals()
+  erb(:"games/current_rentals")
+end

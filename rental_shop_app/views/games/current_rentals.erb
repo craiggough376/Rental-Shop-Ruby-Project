@@ -1,10 +1,12 @@
 <p><a href="/games/<%=@game.id%>">Back</a></p>
 
 <% for rental in @rentals %>
+<% if rental.rental_status == "Renting" %>
 <p>Rental Number: <%= rental.id%>
 <a href="/rentals/<%=rental.id%>">View Rental</a></p>
-<p>Rental Status: <%= rental.rental_status %></p>
-<p>Customer: <% name = Customer.find(rental.customer_id)%><%= name.name%>
+<p>Due Date: <%= rental.display_due_date%>
+<p>Customer: <% name = Customer.find(rental.customer_id)%><%= name.name %>
 <a href="/customers/<%=rental.customer_id%>">View Customer</a></p>
 <hr>
+<% end %>
 <% end %>

@@ -1,0 +1,14 @@
+<h2>Overdue Rentals</h2>
+<br>
+<% for rental in @rentals %>
+<% if rental.overdue && (rental.returned == nil) %>
+<p>Rental Number: <%= rental.id %> <a href="/rentals/<%= rental.id %>">View Rental</a></p>
+<p>Customer: <% customer = Customer.find(rental.customer_id) %><%= customer.name%>
+<a href="/customers/<%= customer.id %>">View Customer</a></p>
+<p>Game: <% game = Game.find(rental.game_id)%><%= game.title %>
+<a href="/games/<%= game.id %>">View Game</a></p>
+<p>Days Overdue: <%= rental.days_due.abs%></p>
+<br>
+<hr>
+<% end %>
+<% end %>
