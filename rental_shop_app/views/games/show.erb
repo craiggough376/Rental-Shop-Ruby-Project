@@ -1,11 +1,22 @@
 <p><a href="/games">Back</a></p>
 <hr>
-<img src="<%= @game.image%>" height="150"/>
-<p>Title: <%= @game.title %></p>
-<p>Console: <%= @game.console %></p>
-<p>Genre: <%= @game.genre %></p>
-<p>In Stock: <%= @game.quantity %></p>
 
+<table>
+  <tr>
+    <img src="<%= @game.image%>" height="150"/>
+    <th>Title</th>
+    <th>Console</th>
+    <th>Genre</th>
+    <th>In Stock</th>
+  </tr>
+
+  <tr>
+    <td><%= @game.title %></td>
+    <td><%= @game.console %></td>
+    <td><%= @game.genre %></td>
+    <td><%= @game.quantity %></td>
+  </tr>
+</table>
 
   <form action="/games/<%= @game.id %>/edit" method="get">
     <input type="submit" value="Edit">

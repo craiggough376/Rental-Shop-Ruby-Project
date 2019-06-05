@@ -1,14 +1,29 @@
 <h2>Customers</h2>
 <a href="/customers/new">Add Customer</a>
 <hr>
+
 <div class="parent-box">
 
-  <% for customer in @customers %>
-  <div class="single-box">
-  <p>name: <%= customer.name %></p>
-  <p>email: <%= customer.email %></p>
-  <p><a href="/customers/<%= customer.id %>">Select Customer</a></p>
-  </div>
-  <% end %>
+<div class ="single-box">
 
-</div>
+<table>
+
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% for customer in @customers %>
+  <tr>
+    <td><%= customer.name %></td>
+    <td><%= customer.email %></td>
+    <td><a href="/customers/<%= customer.id %>/rentals">Rental History</a></td>
+    <td><a href="/customers/<%= customer.id %>/current_rentals">Current Rentals</a></td>
+    <td><a href="/customers/<%= customer.id %>">Select Customer</a></td>
+  </tr>
+<% end %>
+</table>
+  </div>
+  </div>

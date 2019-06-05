@@ -41,7 +41,7 @@
     <a href="/customers/<%= customer.id %>">View Customer</a></p>
     <p>Game: <% game = Game.find(rental.game_id)%><%= game.title %>
     <a href="/games/<%= game.id %>">View Game</a></p>
-    <p>Days Overdue: <%= rental.days_due.abs%></p>
+    <p><font color="red">Days Overdue: <%= rental.days_due.abs%></font></p>
     <br>
     <hr>
     <% end %>

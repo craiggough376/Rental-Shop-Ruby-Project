@@ -9,15 +9,3 @@ a:link, a:visited {
 a:hover, a:active {
   background-color: grey;
 }
-
-lower-nav.a:link, lower-nav.a:visited{
-  color: blue;
-  padding: 6px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-lower-nav.a:hover, lower-nav.a:active {
-  background-color: black;
-}

@@ -1,9 +1,28 @@
-<p>Rental Number: <%= @rental.id %></p>
-<p>Customer: <%= @customer.name %> <a href="/customers/<%= @customer.id %>">Select Customer</a></p>
-<p>Game: <%= @game.title %> <a href="/games/<%= @game.id %>">Select Game</a></p>
-<p>Rental Period: <%= @rental.rental_period %></p>
-<p>Rental Status: <%= @rental.rental_status %></p>
-<p>Date Rented: <%= @rental.date_rented %></p>
+<table>
+  <tr>
+    <th>Rental Number</th>
+    <th>Customer:</th>
+    <th>Game:</th>
+    <th>Rental Period</th>
+    <th>Rental Status</th>
+    <th>Date Rented</th>
+
+  </tr>
+
+  <tr>
+    <td><%= @rental.id %></td>
+    <td><%= @customer.name %></td>
+    <td><%= @game.title %></td>
+    <td><%= @rental.rental_period %></td>
+    <td><%= @rental.rental_status %></td>
+    <td><%= @rental.date_rented %></td>
+  </tr>
+
+</table>
+
+<p><a href="/customers/<%= @customer.id %>">Select Customer</a>
+  <a href="/games/<%= @game.id %>">Select Game</a></p>
+
 
 
   <form action="/rentals/<%= @rental.id %>/edit" method="get">

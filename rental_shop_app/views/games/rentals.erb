@@ -1,10 +1,19 @@
 <p><a href="/games/<%=@game.id%>">Back</a></p>
 
+
+<table>
+  <tr>
+    <th>Rental Number</th>
+    <th>Rental Status</th>
+    <th>Customer</th>
+  </tr>
 <% for rental in @rentals %>
-<p>Rental Number: <%= rental.id%>
-<a href="/rentals/<%=rental.id%>">View Rental</a></p>
-<p>Rental Status: <%= rental.rental_status %></p>
-<p>Customer: <% name = Customer.find(rental.customer_id)%><%= name.name%>
-<a href="/customers/<%=rental.customer_id%>">View Customer</a></p>
-<hr>
-<% end %>
+  <tr>
+    <td><%= rental.id%>
+    <a href="/rentals/<%=rental.id%>">View Rental</a></td>
+    <td><%= rental.rental_status %></td>
+    <td><% name = Customer.find(rental.customer_id)%><%= name.name%>
+      <a href="/customers/<%=rental.customer_id%>">View Customer</a></td>
+  </tr>
+  <% end %>
+</table>

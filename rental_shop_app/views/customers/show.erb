@@ -1,5 +1,13 @@
-<p>Name: <%= @customer.name %></p>
-<p>Email: <%= @customer.email %></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr>
+    <td><%= @customer.name %></td>
+    <td><%= @customer.email %></td>
+  </tr>
+</table>
 
   <form action="/customers/<%= @customer.id %>/edit" method="get">
     <input type="submit" value="Edit">

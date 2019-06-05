@@ -30,7 +30,7 @@ game11.save()
 
 customer1 = Customer.new({"name" => "Ryan West", "email" => "frankwest@gmail.com"})
 customer2 = Customer.new({"name" => "Simon Jones", "email" => "simonjones21@gmail.com"})
-customer3 = Customer.new({"name" => "Brian Thompsom", "email" => "brian_thompson@outlook.com"})
+customer3 = Customer.new({"name" => "Brian Thompson", "email" => "brian_thompson@outlook.com"})
 customer4 = Customer.new({"name" => "Sarah Jenkins", "email" => "sarahnorth@gmail.com"})
 customer5 = Customer.new({"name" => "Harry Peters", "email" => "harrypeters@gmail.com"})
 customer1.save()

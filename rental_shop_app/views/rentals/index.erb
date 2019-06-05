@@ -4,20 +4,32 @@
 </div>
 <br>
 <hr>
-<rb></rb>
 <div class="parent-box">
-<% for rental in @rentals %>
 <div class="single-box">
-<p>Rental Number: <%= rental.id %></p>
-<p>Customer: <% customer = Customer.find(rental.customer_id) %><%= customer.name%>
-<a href="/customers/<%= customer.id %>">View Customer</a></p>
-<p>Game: <% game = Game.find(rental.game_id)%><%= game.title %>
-<a href="/games/<%= game.id %>">View Game</a></p>
-<p>Rental Period: <%= rental.rental_period %> Days</p>
-<p>Rental Status: <%= rental.rental_status %></p>
-<p>Date Rented: <%= rental.date_rented %></p>
-<p><a href="/rentals/<%= rental.id %>">Select Rental</a></p>
-<br>
-</div>
+<table>
+<tr>
+  <th>Rental Number</th>
+  <th>Customer</th>
+  <th>Game</th>
+  <th>Rental Period</th>
+  <th>Rental Status</th>
+  <th>Date Rented</th>
+</tr>
+<% for rental in @rentals %>
+<tr>
+<td><%= rental.id %>
+<a href="/rentals/<%= rental.id %>">Select Rental</a></td>
+<td><% customer = Customer.find(rental.customer_id) %><%= customer.name%>
+<a href="/customers/<%= customer.id %>">View Customer</a></td>
+<td><% game = Game.find(rental.game_id)%><%= game.title %>
+<a href="/games/<%= game.id %>">View Game</a></td>
+<td><%= rental.rental_period %> Days</td>
+<td><%= rental.rental_status %></td>
+<td><%= rental.date_rented %></td>
+</tr>
 <% end %>
+</table>
+
+</div>
+
 </div>
