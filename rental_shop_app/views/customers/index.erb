@@ -1,9 +1,14 @@
 <h2>Customers</h2>
 <a href="/customers/new">Add Customer</a>
 <hr>
-<% for customer in @customers %>
-<p>name: <%= customer.name %></p>
-<p>email: <%= customer.email %></p>
-<p><a href="/customers/<%= customer.id %>">Select Customer</a></p>
-<hr>
-<% end %>
+<div class="parent-box">
+
+  <% for customer in @customers %>
+  <div class="single-box">
+  <p>name: <%= customer.name %></p>
+  <p>email: <%= customer.email %></p>
+  <p><a href="/customers/<%= customer.id %>">Select Customer</a></p>
+  </div>
+  <% end %>
+
+</div>

@@ -55,6 +55,7 @@ class Rental
 
   def display_due_date()
     @date_rented + @rental_period
+    #date object plus integer of days
   end
 
   def overdue()
@@ -67,6 +68,10 @@ class Rental
     now = Date.today
     due_date = (@date_rented + @rental_period)
     difference = (due_date-now).to_i
+  end
+
+  def days_overdue()
+
   end
 
   def self.find(id)

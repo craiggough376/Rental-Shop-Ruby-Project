@@ -1,20 +1,23 @@
 <h2>Rentals</h2>
+<div class="lower-nav">
 <a href="/rentals/new">Add Rental</a>
-<a href="/rentals/current_rentals">Current Rentals</a>
-<a href="/rentals/overdue">View Overdue Rentals</a>
+</div>
 <br>
 <hr>
 <rb></rb>
+<div class="parent-box">
 <% for rental in @rentals %>
+<div class="single-box">
 <p>Rental Number: <%= rental.id %></p>
 <p>Customer: <% customer = Customer.find(rental.customer_id) %><%= customer.name%>
 <a href="/customers/<%= customer.id %>">View Customer</a></p>
 <p>Game: <% game = Game.find(rental.game_id)%><%= game.title %>
 <a href="/games/<%= game.id %>">View Game</a></p>
-<p>Rental Period: <%= rental.rental_period %></p>
+<p>Rental Period: <%= rental.rental_period %> Days</p>
 <p>Rental Status: <%= rental.rental_status %></p>
 <p>Date Rented: <%= rental.date_rented %></p>
 <p><a href="/rentals/<%= rental.id %>">Select Rental</a></p>
 <br>
-<hr>
+</div>
 <% end %>
+</div>

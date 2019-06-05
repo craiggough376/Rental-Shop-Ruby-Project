@@ -22,6 +22,7 @@ end
 #create
 post '/rentals' do
   @rental = Rental.new(params)
+  @rental.rental_status = "Renting"
   @rental.save()
   @customer = Customer.find(params['customer_id'])
   @game = Game.find(params['game_id'])
@@ -60,6 +61,11 @@ end
 #delete
 get '/rentals/:id/delete' do
   @rental = Rental.find(params['id'])
+  @game = Game.find(@rental.game_id)
+  if @rental.rental_status == "Renting"
+    @game.quantity += 1
+    @game.update()
+  end
   @rental.delete()
   erb(:"rentals/delete")
 end
@@ -77,16 +83,4 @@ get '/rentals/:id/return' do
   @game.update()
   end
   erb(:"rentals/return")
-end
-
-#show all current rentals
-get '/rentals/current_rentals' do
-  @rentals = Rental.all()
-  erb(:"rentals/current_rentals")
-end
-
-#show all overdue
-get '/rentals/overdue' do
-  @rentals = Rental.all()
-  erb(:"rentals/overdue")
 end

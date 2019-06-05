@@ -1,12 +1,15 @@
 <h2>Games</h2>
 <a href="/games/new">Add Game</a>
 <hr>
+<div class="parent-box">
 <% for game in @games %>
+<div class ="single-box">
 <img src="<%= game.image%>" height="150"/>
 <p>Title: <%= game.title %></p>
 <p>Console: <%= game.console %></p>
 <p>Genre: <%= game.genre %></p>
 <p>In Stock: <%= game.quantity %></p>
 <p><a href="/games/<%= game.id %>">Select Game</a></p>
-<hr>
+</div>
 <% end %>
+</div>
